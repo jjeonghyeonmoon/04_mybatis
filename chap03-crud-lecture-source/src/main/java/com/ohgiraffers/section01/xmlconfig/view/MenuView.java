@@ -2,6 +2,8 @@ package com.ohgiraffres.section01.xmlconfig.view;
 
 import com.ohgiraffres.section01.xmlconfig.controller.MenuController;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class MenuView {
@@ -42,6 +44,11 @@ public class MenuView {
                 case 1 :
                     menuController.selectAllMenu();
                     break;
+                case 2 :
+                    menuController.selectMenuByCode(inputMenuCode());
+                    break;
+                case 3 :
+                    menuController.insertNewMenu(inputMenu());
             }
 
         }while (true);
@@ -49,10 +56,35 @@ public class MenuView {
 
     }
 
+    private static Map<String,String> inputMenu(){
+        // 메뉴 이름, 가격, 카테고리 코드를 입력 받아 넘겨주기
+        Scanner sc = new Scanner(System.in);
+        System.out.print("신규 메뉴 이름 입력해주세요 : ");
+        String name = sc.nextLine();
+        System.out.print("신규 메뉴의 판매 가격을 입력해주세요 : ");
+        String price = sc.nextLine();
+        System.out.print("신규 메뉴의 카테고리 코드를 입력해주세요 : ");
+        String category = sc.nextLine();
 
+        Map<String,String> parameter = new HashMap<>();
+        parameter.put("name",name);
+        parameter.put("price" ,price);
+        parameter.put("category",category);
 
+        return parameter;
+    }
 
+    private static Map<String,String> inputMenuCode(){
 
+       Scanner sc = new Scanner(System.in);
+        System.out.print("검색하실 메뉴 코드를 입력해주세요 : ");
+        String menuCode = sc.nextLine();
+
+        Map<String,String> parameter = new HashMap<>();
+        parameter.put("menuCode",menuCode);
+
+        return parameter;
+    }
 
 
 

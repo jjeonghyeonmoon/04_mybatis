@@ -16,4 +16,14 @@ public class MenuDAO {
 
         return sqlSession.selectList("MenuMapper.selectAllMenu");
     }
+
+    public MenuDTO selectMenuByMenuCode(SqlSession sqlSession, int code) {
+
+        return sqlSession.selectOne("MenuMapper.selectMenuByMenuCode",code);
+    }
+
+    public int insertNewMenu(SqlSession sqlSession, MenuDTO newMenu) {
+
+        return sqlSession.insert("MenuMapper,insertNewMenu",newMenu);
+    }
 }

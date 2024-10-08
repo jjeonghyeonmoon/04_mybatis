@@ -1,6 +1,6 @@
-package com.ohgiraffres.section01.xmlconfig;
+package com.ohgiraffers.section01.xmlconfig;
 
-import com.ohgiraffres.section01.xmlconfig.view.MenuView;
+import com.ohgiraffers.section01.xmlconfig.view.MenuView;
 
 public class Application {
 
