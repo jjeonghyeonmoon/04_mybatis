@@ -1,12 +1,12 @@
-package com.ohgiraffres.section01.xmlconfig.model.service;
+package com.ohgiraffers.section01.xmlconfig.model.service;
 
-import com.ohgiraffres.section01.xmlconfig.model.dao.MenuDAO;
-import com.ohgiraffres.section01.xmlconfig.model.dto.MenuDTO;
+import com.ohgiraffers.section01.xmlconfig.model.dao.MenuDAO;
+import com.ohgiraffers.section01.xmlconfig.model.dto.MenuDTO;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
-import static com.ohgiraffres.section01.xmlconfig.common.Template.getSqlSession;
+import static com.ohgiraffers.section01.xmlconfig.common.Template.getSqlSession;
 
 public class MenuService {
 
@@ -76,4 +76,35 @@ public class MenuService {
             sqlSession.close();
         return result > 0 ? true : false;
     }
+
+    public boolean modifyMenu(MenuDTO modifyMenu) {
+        SqlSession sqlSession = getSqlSession();
+
+        int result = menuDAO.updateMenu(sqlSession,modifyMenu);
+
+        if (result > 0){
+            sqlSession.commit();
+        }else
+            sqlSession.rollback();
+
+        sqlSession.close();
+
+        return  result > 0 ? true : false;
+    }
+
+    public boolean delete2Menu(MenuDTO delete2Menu) {
+        SqlSession sqlSession = getSqlSession();
+
+        int result = menuDAO.deleteMenu(sqlSession,delete2Menu);
+
+        if (result > 0){
+            sqlSession.commit();
+        }else
+            sqlSession.rollback();
+
+        sqlSession.close();
+
+        return  result > 0 ? true : false;
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.ohgiraffres.section01.xmlconfig.model.dto;
+package com.ohgiraffers.section01.xmlconfig.model.dto;
 
 public class MenuDTO {
 

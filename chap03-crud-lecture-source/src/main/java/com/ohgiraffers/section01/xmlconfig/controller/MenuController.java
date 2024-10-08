@@ -1,8 +1,8 @@
-package com.ohgiraffres.section01.xmlconfig.controller;
+package com.ohgiraffers.section01.xmlconfig.controller;
 
-import com.ohgiraffres.section01.xmlconfig.model.dto.MenuDTO;
-import com.ohgiraffres.section01.xmlconfig.model.service.MenuService;
-import com.ohgiraffres.section01.xmlconfig.view.PrintResult;
+import com.ohgiraffers.section01.xmlconfig.model.dto.MenuDTO;
+import com.ohgiraffers.section01.xmlconfig.model.service.MenuService;
+import com.ohgiraffers.section01.xmlconfig.view.PrintResult;
 
 import java.util.List;
 import java.util.Map;
@@ -83,4 +83,44 @@ public class MenuController {
         }
 
     }
+
+    public void modifyMenu(Map<String, String> parameter) {
+
+
+        int code = Integer.parseInt(parameter.get("code"));
+        String name = parameter.get("name");
+        int price = Integer.parseInt(parameter.get("price"));
+        int categoryCode = Integer.parseInt(parameter.get("categoryCode"));
+
+        MenuDTO modifyMenu = new MenuDTO();
+        modifyMenu.setMenuCode(code);
+        modifyMenu.setMenuName(name);
+        modifyMenu.setMenuPrice(price);
+        modifyMenu.setCategoryCode(categoryCode);
+
+        if (menuService.modifyMenu(modifyMenu)){
+            printResult.printSuccessMessage("update");
+        }else {
+            printResult.printErrorMessage("update");
+        }
+
+
+    }
+
+    public void delete2Menu(Map<String, String> parameter) {
+        int code = Integer.parseInt(parameter.get("code"));
+
+
+        MenuDTO delete2Menu = new MenuDTO();
+        delete2Menu.setMenuCode(code);
+
+        if (menuService.delete2Menu(delete2Menu)){
+            printResult.printSuccessMessage("delete");
+        }else {
+            printResult.printErrorMessage("delete");
+        }
+
+    }
+
+
 }

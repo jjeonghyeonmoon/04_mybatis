@@ -1,6 +1,6 @@
-package com.ohgiraffres.section01.xmlconfig.model.dao;
+package com.ohgiraffers.section01.xmlconfig.model.dao;
 
-import com.ohgiraffres.section01.xmlconfig.model.dto.MenuDTO;
+import com.ohgiraffers.section01.xmlconfig.model.dto.MenuDTO;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
@@ -24,6 +24,15 @@ public class MenuDAO {
 
     public int insertNewMenu(SqlSession sqlSession, MenuDTO newMenu) {
 
-        return sqlSession.insert("MenuMapper,insertNewMenu",newMenu);
+        return sqlSession.insert("MenuMapper.insertNewMenu",newMenu);
+    }
+
+    public int updateMenu(SqlSession sqlSession, MenuDTO modifyMenu) {
+
+        return sqlSession.update("MenuMapper.updateMenu", modifyMenu);
+    }
+
+    public int deleteMenu(SqlSession sqlSession, MenuDTO delete2Menu){
+        return sqlSession.delete("MenuMapper.deleteMenu",delete2Menu);
     }
 }
