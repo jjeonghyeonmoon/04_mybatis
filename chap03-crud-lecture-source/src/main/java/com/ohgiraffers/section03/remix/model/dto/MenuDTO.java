@@ -1,6 +1,7 @@
-package com.ohgiraffers.section01.xmlconfig.model.dto;
+package com.ohgiraffers.section03.remix.model.dto;
 
-public class MenuDTO {
+public class
+MenuDTO {
 
         private int menuCode;
         private String menuName;
@@ -8,7 +9,8 @@ public class MenuDTO {
         private int categoryCode;
         private String orderableStatus;
 
-        public MenuDTO() {}
+        public MenuDTO() {
+    }
 
         public int getMenuCode () {
         return menuCode;
@@ -61,7 +63,7 @@ public class MenuDTO {
                 '}';
     }
 
-        public MenuDTO( int menuCode, String menuName,int menuPrice, int categoryCode, String orderableStatus){
+        public MenuDTO(int menuCode, String menuName, int menuPrice, int categoryCode, String orderableStatus){
         this.menuCode = menuCode;
         this.menuName = menuName;
         this.menuPrice = menuPrice;
